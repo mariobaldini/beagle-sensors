@@ -1,20 +1,12 @@
-# ADXL345 Python library for Raspberry Pi 
-#
-# author:  Jonathan Williamson
-# license: BSD, see LICENSE.txt included in this package
-# 
-# This is a Raspberry Pi Python implementation to help you get started with
-# the Adafruit Triple Axis ADXL345 breakout board:
-# http://shop.pimoroni.com/products/adafruit-triple-axis-accelerometer
-
 import smbus
 from time import sleep
+import sys
 
-# select the correct i2c bus for this revision of Raspberry Pi
-#revision = ([l[12:-1] for l in open('/proc/cpuinfo','r').readlines() if l[:8]=="Revision"]+['0000'])[0]
-#bus = smbus.SMBus(1 if int(revision, 16) >= 4 else 0)
+
+
 
 bus = smbus.SMBus(1)
+address = None
 
 # ADXL345 constants
 EARTH_GRAVITY_MS2   = 9.80665
@@ -40,12 +32,12 @@ RANGE_16G           = 0x03
 MEASURE             = 0x08
 AXES_DATA           = 0x32
 
-class ADXL345:
+class new:
 
-    address = None
 
-    def __init__(self, address = 0x53):        
-        self.address = address
+    def __init__(self, bus_addr, device_addr):        
+        self.address = device_addr
+        bus = smbus.SMBus(1)
         self.setBandwidthRate(BW_RATE_100HZ)
         self.setRange(RANGE_2G)
         self.enableMeasurement()
@@ -71,7 +63,7 @@ class ADXL345:
     # parameter gforce:
     #    False (default): result is returned in m/s^2
     #    True           : result is returned in gs
-    def getAxes(self, gforce = False):
+    def getAxes(self, gforce = True):
         bytes = bus.read_i2c_block_data(self.address, AXES_DATA, 6)
         
         x = bytes[0] | (bytes[1] << 8)
@@ -101,13 +93,8 @@ class ADXL345:
 
         return {"x": x, "y": y, "z": z}
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # if run directly we'll just create an instance of the class and output 
     # the current readings
-    adxl345 = ADXL345()
-    
-    axes = adxl345.getAxes(True)
-    print "ADXL345 on address 0x%x:" % (adxl345.address)
-    print "   x = %.3fG" % ( axes['x'] )
-    print "   y = %.3fG" % ( axes['y'] )
-    print "   z = %.3fG" % ( axes['z'] )
+
+
