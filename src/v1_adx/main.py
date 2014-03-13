@@ -13,7 +13,7 @@ import driver_adxl345 as ADXL345
 ## BEGIN
 
 
-adx1 = ADXL345.new(1,   0x53) #adxl345_bus1_add53
+adx1 = ADXL345.new(0,   0x53) #adxl345_bus1_add53
 #adx2 = ADXL345() #adxl345_bus1_add53
 #adx3 = ADXL345() #adxl345_bus1_add53
 #adx4 = ADXL345() #adxl345_bus1_add53

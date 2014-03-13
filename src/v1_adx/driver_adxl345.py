@@ -37,7 +37,8 @@ class new:
 
     def __init__(self, bus_addr, device_addr):        
         self.address = device_addr
-        bus = smbus.SMBus(1)
+        self.bus = smbus.SMBus(bus_addr)
+        print "bus:", bus_addr
         self.setBandwidthRate(BW_RATE_100HZ)
         self.setRange(RANGE_2G)
         self.enableMeasurement()
