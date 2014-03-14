@@ -3,6 +3,8 @@ BeagleBone Black Tools
 for Physiological Data Acquition
 ==============
 
+TODO: picture
+
 
 
 
@@ -29,7 +31,24 @@ Overview
 - SSH (text mode and graphical, through -X option)
 
 
+**Sample output:**
+0.0,0.0,0.0    0.0,0.0,0.0    0.0,0.0,0.0    0.0,0.0,0.0    0.0    0.0    0.0    0.0
+4x ADXL345 accelerometers and 4x Analog pins. 
+
+
+
+
+##### Benefits from using a Beaglebone+Linux instead a Microcontroller based approach:
+
+TODO: docs
+
+
+
+
+
 #### Future improvements 
+- CSV output to file.
+- Graphical User Interface for realtime ploting.
 - Dynamic DNS for easier network access
 - Clean openbox right click menu
 - Customize openbox right click to call functions of the system
@@ -39,7 +58,7 @@ Overview
 - GUI access over network
 - Cape design, with generic connectors. (P2 ?)
 - Filesystem improvements (to avoid dirty state on sequencial hard power offs)
-
+- Automatic detection and identification of connected sensors.
 
 
 
@@ -126,9 +145,7 @@ Reading devices on a I2C bus:
 ** just for reference to where the vanilla code is / how to run it**
 TODO: propper organize it.
 
-``
-
-
+```
 code v1
 src/v1/main.py
 
@@ -136,8 +153,7 @@ src/v1/main.py
 run:
 python2 main.py
 
-
-``
+```
 
 
 
