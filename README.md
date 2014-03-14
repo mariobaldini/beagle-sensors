@@ -122,6 +122,9 @@ _TODO Documentation_
 - Configure autostart of Graphical User Interface: 
 _TODO Documentation_
 
+- Add to ~/.profile  `echo BB-I2C1 > /sys/devices/bone_capemgr.6/slots`
+
+
 
 - (Optional) Dependencies to run a pure X11 GUI (without Openbox).
 `pacman -S xterm`

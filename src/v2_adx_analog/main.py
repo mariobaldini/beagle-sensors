@@ -11,16 +11,23 @@ import driver_adxl345_bus2 as ADXL345_bus2
 import Adafruit_BBIO.ADC as ADC
 
 
-ADC.setup()  
-p40_raw = ADC.read_raw("P9_40")	
+#ADC.setup()  
+#p40_raw = ADC.read_raw("P9_40")	
 
 
 ## BEGIN
 
-adx1 = ADXL345_bus1.new(1,   0x1D) #adxl345_bus1_add53
-adx2 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
-adx3 = ADXL345_bus2.new(2,   0x1D) #adxl345_bus1_add53
-adx4 = ADXL345_bus2.new(2,   0x53) #adxl345_bus1_add53 
+# For single ADX connection
+adx1 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
+adx2 = adx1
+adx3 = adx1
+adx4 = adx1
+
+# For cape with 4 ADX
+# adx1 = ADXL345_bus1.new(1,   0x1D) #adxl345_bus1_add53
+# adx2 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
+# adx3 = ADXL345_bus2.new(2,   0x1D) #adxl345_bus1_add53
+# adx4 = ADXL345_bus2.new(2,   0x53) #adxl345_bus1_add53 
 
 
 print "Column 1-3:\tADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 G"
