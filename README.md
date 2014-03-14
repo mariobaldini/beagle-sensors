@@ -1,15 +1,15 @@
 
-# BeagleBone Black Tools 
-# for Physiological Data Acquisition
-
-
-TODO: picture
+BeagleBone Black Tools for Physiological Data Acquisition
+============================
 
 
 
 
 Overview 
 ---------------
+
+TODO: picture
+
 
 
 #### Hardware:  
