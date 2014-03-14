@@ -8,7 +8,11 @@ import sys
 
 import driver_adxl345_bus1 as ADXL345_bus1
 import driver_adxl345_bus2 as ADXL345_bus2
+import Adafruit_BBIO.ADC as ADC
 
+
+ADC.setup()  
+p40_raw = ADC.read_raw("P9_40")	
 
 
 ## BEGIN

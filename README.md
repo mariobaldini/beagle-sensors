@@ -161,6 +161,12 @@ python2 main.py
 
 
 
+outros requisitos para arch
+Adafruit's BeagleBone IO Python
+pacman -S base-devel
+
+
+
 
 ubuntu
 
