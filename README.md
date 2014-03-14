@@ -32,7 +32,9 @@ _TODO: picture_
 
 
 **Sample output:**
+```
 0.0,0.0,0.0    0.0,0.0,0.0    0.0,0.0,0.0    0.0,0.0,0.0    0.0    0.0    0.0    0.0
+```
 4x ADXL345 accelerometers and 4x Analog pins. 
 
 
@@ -59,7 +61,7 @@ _TODO: docs_
 - Cape design, with generic connectors. (P2 ?)
 - Filesystem improvements (to avoid dirty state on sequencial hard power offs)
 - Automatic detection and identification of connected sensors.
-
+- Emulated device drivers with file IO (enabling development of custom code without the actual hardware; reading from sample data file and allowing instant switch to real hardware acquisition).
 
 
 Installation guide
@@ -73,6 +75,9 @@ Installation guide
 Install a pre-built disk image to a SDcard: 
 `sudo dd if=arch-build.img of=/dev/SDCardNAME`
 `sudo fdisk -l `
+
+Pre-built images:  
+[https://drive.google.com/folderview?id=0B8FdkQxARKjHbFNFeVJmNUdJazQ&usp=sharing]
 
 _TODO: docs_
 
@@ -142,7 +147,7 @@ Reading devices on a I2C bus:
 
 
 #### temporary scratchpad; fully experimental!! ####
-** just for reference to where the vanilla code is / how to run it**
+**just for reference to where the vanilla code is / how to run it**  
 _TODO: propper organize it_
 
 ```
