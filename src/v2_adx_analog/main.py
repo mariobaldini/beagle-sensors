@@ -5,6 +5,8 @@
 import smbus
 from time import sleep
 import sys
+sys.dont_write_bytecode = True   # prevents older pythons generation of compiled .pyc bytecodes in the tree
+
 
 import driver_adxl345_bus1 as ADXL345_bus1
 import driver_adxl345_bus2 as ADXL345_bus2
