@@ -1,5 +1,6 @@
 
-BeagleBone Black Misc Experiments with Health Sensors
+BeagleBone Black Tools
+for Physiological Data Acquition
 ==============
 
 
@@ -9,26 +10,26 @@ Overview
 ---------------
 
 
-#### Hardware: #### 
+#### Hardware:  
 - Beaglebone Black
 - ADXL 345 (accelerometer)
 - . (air flow sensor) TODO: air flow part number
 
 
-#### Software: ####  
+#### Software:   
 - Archlinux
 - ic2tools (general i2c tools)
 - Python (for raw sensor access)
 - X11 / Openbox (for graphical display)
 
 
-#### Data Input/Output Options: #### 
+#### Data Input/Output Options:  
 - Serial connect (Header pin or USB serial)
 - Standard HDMI video + mouse + keyboard
 - SSH (text mode and graphical, through -X option)
 
 
-#### Future improvements ####
+#### Future improvements 
 - Dynamic DNS for easier network access
 - Clean openbox right click menu
 - Customize openbox right click to call functions of the system
@@ -49,7 +50,7 @@ Installation guide
 
 (requirements: a linux machine to create the SDcard using this guide. Beaglebone documentation also describe how to create using Windows)
 
-### Easy mode: ###
+### Easy mode: 
 Install a pre-built disk image to a SDcard: 
 `sudo dd if=arch-build.img of=/dev/SDCardNAME`
 `sudo fdisk -l `
@@ -144,7 +145,7 @@ python2 main.py
 
 
 
-#### Authors: ####
+#### Authors: 
 - Mario Baldini 	<mario.baldini@ieee.org>
 - Joao Baggio 		<jbaggio@gmail.com>
 - Raimes Moraes 	<raimes@eel.ufsc.br>
@@ -152,12 +153,14 @@ python2 main.py
 
 
 
-
+```
 /*
  * ----------------------------------------------------------------------------
- * "THE BEER-WARE LICENSE":
+ * "THE BEER-WARE LICENSE": 
+ * [http://en.wikipedia.org/wiki/Beerware]
  * <mario.baldini@ieee.org> wrote this file. As long as you retain this notice you
  * can do whatever you want with this stuff. If we meet some day, and you think
  * this stuff is worth it, you can buy me a beer in return. -- Mario Baldini
  * ----------------------------------------------------------------------------
  */
+ ```
