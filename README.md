@@ -8,14 +8,14 @@ BeagleBone Black Tools for Physiological Data Acquisition
 Overview 
 ---------------
 
-TODO: picture
+_TODO: picture_
 
 
 
 #### Hardware:  
 - Beaglebone Black
 - ADXL 345 (accelerometer)
-- . (air flow sensor) TODO: air flow part number
+- . (air flow sensor) _TODO: air flow part number_
 
 
 #### Software:   
@@ -40,7 +40,7 @@ TODO: picture
 
 ##### Benefits from using a Beaglebone+Linux instead a Microcontroller based approach:
 
-TODO: docs
+_TODO: docs_
 
 
 
@@ -74,12 +74,12 @@ Install a pre-built disk image to a SDcard:
 `sudo dd if=arch-build.img of=/dev/SDCardNAME`
 `sudo fdisk -l `
 
-TODO: docs
+_TODO: docs_
 
 
 
 
-*Protip:* (-- not that pro, :P)
+*Protip:* (-- not that Pro)
 Connect your Beagle to the network, find out its IP address (`ifconfig`) and control it over SSH and write code through a network mounted volume. It's way easier to control it over your home machine and you can even run the GUI over SSH (`-X`) without a full setup. 
 The whole setup results in a Beagle+USB cable (for power and serial over USB); and not a keyboard, monitor, hdmi cables, etc. 
 
@@ -109,13 +109,13 @@ To start openbox:
 
 
 - Add a regular system user (run as root is a bad practice)
-TODO Documentation
+_TODO Documentation_
 
 - Configure autologon: 
-TODO Documentation
+_TODO Documentation_
 
 - Configure autostart of Graphical User Interface: 
-TODO Documentation
+_TODO Documentation_
 
 
 - (Optional) Dependencies to run a pure X11 GUI (without Openbox).
@@ -132,7 +132,7 @@ Software usage
 -------------------------
 
 
-TODO: docs
+_TODO: docs_
 
 Reading devices on a I2C bus:
 
@@ -143,7 +143,7 @@ Reading devices on a I2C bus:
 
 #### temporary scratchpad; fully experimental!! ####
 ** just for reference to where the vanilla code is / how to run it**
-TODO: propper organize it.
+_TODO: propper organize it_
 
 ```
 code v1
