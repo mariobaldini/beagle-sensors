@@ -5,18 +5,19 @@
 import smbus
 from time import sleep
 import sys
-import driver_adxl345 as ADXL345
 
+import driver_adxl345_bus1 as ADXL345_bus1
+import driver_adxl345_bus2 as ADXL345_bus2
 
 
 
 ## BEGIN
 
+adx1 = ADXL345_bus1.new(1,   0x1D) #adxl345_bus1_add53
+adx2 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
+adx3 = ADXL345_bus2.new(2,   0x1D) #adxl345_bus1_add53
+adx4 = ADXL345_bus2.new(2,   0x53) #adxl345_bus1_add53
 
-adx1 = ADXL345.new(0,   0x53) #adxl345_bus1_add53
-#adx2 = ADXL345() #adxl345_bus1_add53
-#adx3 = ADXL345() #adxl345_bus1_add53
-#adx4 = ADXL345() #adxl345_bus1_add53
 
 print "Column 1-3:\tADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 G"
 print "Column 4-6:\tADXL 345, I2C Bus: 1, Address 0xXX; Format: x,y,z; +/-0.000 G"
@@ -37,8 +38,13 @@ while (True):
 #    print "%.3f" % ( axes['x'] ), "%.3f" % ( axes['y'] ), "%.3f" % ( axes['z'] )
 
 
+    #axes1 = adx1.getAxes(True)
     axes1 = adx1.getAxes(True)
-    
+    axes2 = adx2.getAxes(True)
+    axes3 = adx3.getAxes(True)
+    axes4 = adx4.getAxes(True)
+
+
     sys.stdout.write("%.3f," % ( axes1['x'] ))
     sys.stdout.write("%.3f," % ( axes1['y'] ))
     sys.stdout.write("%.3f," % ( axes1['z'] ))
@@ -58,7 +64,7 @@ while (True):
 
     sys.stdout.flush()
 
-    sleep (0.050)  # ms
+    sleep (0.150)  # ms
 
 
 

@@ -153,6 +153,66 @@ src/v1/main.py
 run:
 python2 main.py
 
+
+
+
+
+ubuntu
+
+sudo su  (# -> root)
+
+apt-get update
+apt-get install i2c-tools screen htop nmon
+
+echo BB-I2C1 > /sys/devices/bone_capemgr.9/slots
+ls -l /sys/bus/i2c/devices/i2c-*
+
+
+i2cdetect -l   (busca portas )
+i2cdetect -y -r 1   (busca devices na porta)
+
+i2cdump -y 2 0x53
+i2cget -y 2 0x53 00
+
+
+ADAFruit Python libs
+
+sudo ntpdate pool.ntp.org
+sudo apt-get update
+sudo apt-get install build-essential python-dev python-pip -y
+sudo easy_install -U distribute  //debian only
+sudo pip install Adafruit_BBIO
+
+
+sudo apt-get install python-smbus
+
+
+
+test code:
+import Adafruit_BBIO.ADC as ADC
+ADC.setup()
+
+# le valor na faixa 0-1.0
+p40_norm = ADC.read("P9_40")
+p40_raw = ADC.read_raw("P9_40")
+print 'ADC P9_40\t Normalizado: ', p40_norm, '\tADC P9_40 RAW: ', p40_raw
+
+# esperado:
+# ADC P9_40     Normalizado:  0.796111106873     ADC P9_40 RAW:  1464.0
+
+
+
+
+
+
+
+
+Gráficos: (em andamento / incompleto)
+
+
+pacman -S xorg-server xorg-server-utils xorg-xinit
+
+
 ```
 
 
