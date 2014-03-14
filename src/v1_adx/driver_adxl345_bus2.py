@@ -16,7 +16,7 @@ DATA_FORMAT         = 0x31
 BW_RATE             = 0x2C
 POWER_CTL           = 0x2D
 
-BW_RATE_1600HZ      = 0x0F
+BW_RATE_1600HZ      = 0x0F 
 BW_RATE_800HZ       = 0x0E
 BW_RATE_400HZ       = 0x0D
 BW_RATE_200HZ       = 0x0C
