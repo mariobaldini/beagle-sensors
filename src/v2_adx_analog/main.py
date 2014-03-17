@@ -1,7 +1,6 @@
 # BeagleBone Black Health Sensors
 # Autores: Mario Baldini, Joao Baggio, Raimes Moraes
 
-
 import smbus
 from time import sleep
 import sys
@@ -10,27 +9,19 @@ sys.dont_write_bytecode = True   # prevents older pythons generation of compiled
 
 
 import driver_adxl345_bus1 as ADXL345_bus1
-#import driver_adxl345_bus2 as ADXL345_bus2
+import driver_adxl345_bus2 as ADXL345_bus2
 import Adafruit_BBIO.ADC as ADC
 
  
-ADC.setup()  
-p40_raw = ADC.read_raw("P9_40")	
-
-
 ## BEGIN
+ADC.setup()  
 
-# For single ADX connection
-adx1 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
-adx2 = adx1
-adx3 = adx1
-adx4 = adx1
 
 # For cape with 4 ADX
-# adx1 = ADXL345_bus1.new(1,   0x1D) #adxl345_bus1_add53
-# adx2 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
-# adx3 = ADXL345_bus2.new(2,   0x1D) #adxl345_bus1_add53
-# adx4 = ADXL345_bus2.new(2,   0x53) #adxl345_bus1_add53 
+adx1 = ADXL345_bus1.new(1,   0x1D) #adxl345_bus1_add53
+adx2 = ADXL345_bus1.new(1,   0x53) #adxl345_bus1_add53
+adx3 = ADXL345_bus2.new(2,   0x1D) #adxl345_bus1_add53
+adx4 = ADXL345_bus2.new(2,   0x53) #adxl345_bus1_add53 
 
 
 print "Column 1-3:\tADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 G"
@@ -39,7 +30,6 @@ print "Column 7-9:\tADXL 345, I2C Bus: 2, Address 0x53; Format: x,y,z; +/-0.000 
 print "Column 10-12:\tADXL 345, I2C Bus: 2, Address 0xXX; Format: x,y,z; +/-0.000 G"
 print "Column 13-18:\tAnalog inputs. P9_35 - P9_40. mV"
 print "---------------------------------------------------------------------"
-
 
 
 axes1 = { 'x':0 , 'y':0, 'z':0 }
@@ -60,11 +50,8 @@ f.write("---------------------------------------------------------------------\n
 
 while (True):
     
-    
-#    print "%.3f" % ( axes['x'] ), "%.3f" % ( axes['y'] ), "%.3f" % ( axes['z'] )
 
 
-    #axes1 = adx1.getAxes(True)
     axes1 = adx1.getAxes(True)
     axes2 = adx2.getAxes(True)
     axes3 = adx3.getAxes(True)
