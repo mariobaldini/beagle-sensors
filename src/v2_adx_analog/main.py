@@ -9,12 +9,12 @@ sys.dont_write_bytecode = True   # prevents older pythons generation of compiled
 
 
 import driver_adxl345_bus1 as ADXL345_bus1
-import driver_adxl345_bus2 as ADXL345_bus2
+#import driver_adxl345_bus2 as ADXL345_bus2
 import Adafruit_BBIO.ADC as ADC
 
-
-#ADC.setup()  
-#p40_raw = ADC.read_raw("P9_40")	
+ 
+ADC.setup()  
+p40_raw = ADC.read_raw("P9_40")	
 
 
 ## BEGIN
@@ -57,6 +57,7 @@ while (True):
     axes3 = adx3.getAxes(True)
     axes4 = adx4.getAxes(True)
 
+    p40_raw = ADC.read_raw("P9_40")	
 
     sys.stdout.write("%.3f," % ( axes1['x'] ))
     sys.stdout.write("%.3f," % ( axes1['y'] ))
@@ -73,8 +74,11 @@ while (True):
     sys.stdout.write("%.3f," % ( axes4['x'] ))
     sys.stdout.write("%.3f," % ( axes4['y'] ))
     sys.stdout.write("%.3f," % ( axes4['z'] ))
-    sys.stdout.write("\n")
+    sys.stdout.write("\t")
+    sys.stdout.write("%.3f," % ( p40_raw ))
 
+
+    sys.stdout.write("\n")
     sys.stdout.flush()
 
     sleep (0.150)  # ms
