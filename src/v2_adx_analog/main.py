@@ -36,6 +36,7 @@ print "Column 1-3:\tADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 
 print "Column 4-6:\tADXL 345, I2C Bus: 1, Address 0xXX; Format: x,y,z; +/-0.000 G"
 print "Column 7-9:\tADXL 345, I2C Bus: 2, Address 0x53; Format: x,y,z; +/-0.000 G"
 print "Column 10-12:\tADXL 345, I2C Bus: 2, Address 0xXX; Format: x,y,z; +/-0.000 G"
+print "Column 13-18:\tAnalog inputs. P9_35 - P9_40. mV"
 
 
 
@@ -57,7 +58,15 @@ while (True):
     axes3 = adx3.getAxes(True)
     axes4 = adx4.getAxes(True)
 
+
+
+    p35_raw = ADC.read_raw("P9_35")
+    p36_raw = ADC.read_raw("P9_36")	
+    p37_raw = ADC.read_raw("P9_37")	
+    p38_raw = ADC.read_raw("P9_38")	
+    p39_raw = ADC.read_raw("P9_39")	
     p40_raw = ADC.read_raw("P9_40")	
+	
 
     sys.stdout.write("%.3f," % ( axes1['x'] ))
     sys.stdout.write("%.3f," % ( axes1['y'] ))
@@ -75,7 +84,12 @@ while (True):
     sys.stdout.write("%.3f," % ( axes4['y'] ))
     sys.stdout.write("%.3f," % ( axes4['z'] ))
     sys.stdout.write("\t")
-    sys.stdout.write("%.3f," % ( p40_raw ))
+    sys.stdout.write("%07.2f," % ( p35_raw ))
+    sys.stdout.write("%07.2f," % ( p36_raw ))
+    sys.stdout.write("%07.2f," % ( p37_raw ))
+    sys.stdout.write("%07.2f," % ( p38_raw ))
+    sys.stdout.write("%07.2f," % ( p39_raw ))
+    sys.stdout.write("%07.2f," % ( p40_raw ))
 
 
     sys.stdout.write("\n")
