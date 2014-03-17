@@ -5,6 +5,7 @@
 import smbus
 from time import sleep
 import sys
+import os
 sys.dont_write_bytecode = True   # prevents older pythons generation of compiled .pyc bytecodes in the tree
 
 
@@ -37,6 +38,7 @@ print "Column 4-6:\tADXL 345, I2C Bus: 1, Address 0xXX; Format: x,y,z; +/-0.000 
 print "Column 7-9:\tADXL 345, I2C Bus: 2, Address 0x53; Format: x,y,z; +/-0.000 G"
 print "Column 10-12:\tADXL 345, I2C Bus: 2, Address 0xXX; Format: x,y,z; +/-0.000 G"
 print "Column 13-18:\tAnalog inputs. P9_35 - P9_40. mV"
+print "---------------------------------------------------------------------"
 
 
 
@@ -44,6 +46,16 @@ axes1 = { 'x':0 , 'y':0, 'z':0 }
 axes2 = { 'x':0 , 'y':0, 'z':0 }
 axes3 = { 'x':0 , 'y':0, 'z':0 }
 axes4 = { 'x':0 , 'y':0, 'z':0 }
+
+
+f = open('output.txt','w')
+f.write("Column 1-3:\tADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 G\n")
+f.write("Column 4-6:\tADXL 345, I2C Bus: 1, Address 0xXX; Format: x,y,z; +/-0.000 G\n")
+f.write("Column 7-9:\tADXL 345, I2C Bus: 2, Address 0x53; Format: x,y,z; +/-0.000 G\n")
+f.write("Column 10-12:\tADXL 345, I2C Bus: 2, Address 0xXX; Format: x,y,z; +/-0.000 G\n")
+f.write("Column 13-18:\tAnalog inputs. P9_35 - P9_40. mV\n")
+f.write("---------------------------------------------------------------------\n")
+
 
 
 while (True):
@@ -89,15 +101,16 @@ while (True):
     sys.stdout.write("%07.2f," % ( p37_raw ))
     sys.stdout.write("%07.2f," % ( p38_raw ))
     sys.stdout.write("%07.2f," % ( p39_raw ))
-    sys.stdout.write("%07.2f," % ( p40_raw ))
+    sys.stdout.write("%07.2f" % ( p40_raw ))
 
 
     sys.stdout.write("\n")
     sys.stdout.flush()
 
+
     sleep (0.150)  # ms
 
-
+f.close()
 
 
 
