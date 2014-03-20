@@ -69,53 +69,72 @@ print 'Socket bind complete'
 s.listen(10)
 print 'Socket now listening'
  
-#wait to accept a connection - blocking call
-conn, addr = s.accept()
- 
-#display client information
-print 'Connected with ' + addr[0] + ':' + str(addr[1])
+
+while (True): 
+
+    #wait to accept a connection - blocking call
+    print "Waiting for connections..."
+    conn, addr = s.accept()
+     
+    #display client information
+    print 'Connected with ' + addr[0] + ':' + str(addr[1])
 
 
-while (True):
-    
-    timestamp = time.time()
+    while (True):
+        
+        timestamp = time.time()
 
-    axes1['x'] = random.uniform(-2.0, 2.0)
-    axes1['y'] = random.uniform(-2.0, 2.0)
-    axes1['z'] = random.uniform(-2.0, 2.0)
+        axes1['x'] = random.uniform(-2.0, 2.0)
+        axes1['y'] = random.uniform(-2.0, 2.0)
+        axes1['z'] = random.uniform(-2.0, 2.0)
 
-    axes2['x'] = random.uniform(-2.0, 2.0)
-    axes2['y'] = random.uniform(-2.0, 2.0)
-    axes2['z'] = random.uniform(-2.0, 2.0)
+        axes2['x'] = random.uniform(-2.0, 2.0)
+        axes2['y'] = random.uniform(-2.0, 2.0)
+        axes2['z'] = random.uniform(-2.0, 2.0)
 
-    axes3['x'] = random.uniform(-2.0, 2.0)
-    axes3['y'] = random.uniform(-2.0, 2.0)
-    axes3['z'] = random.uniform(-2.0, 2.0)
+        axes3['x'] = random.uniform(-2.0, 2.0)
+        axes3['y'] = random.uniform(-2.0, 2.0)
+        axes3['z'] = random.uniform(-2.0, 2.0)
 
-    axes4['x'] = random.uniform(-2.0, 2.0)
-    axes4['y'] = random.uniform(-2.0, 2.0)
-    axes4['z'] = random.uniform(-2.0, 2.0)
+        axes4['x'] = random.uniform(-2.0, 2.0)
+        axes4['y'] = random.uniform(-2.0, 2.0)
+        axes4['z'] = random.uniform(-2.0, 2.0)
 
-    p37_raw = random.uniform(0, 1800)
-    p38_raw = random.uniform(0, 1800)
-    p39_raw = random.uniform(0, 1800)
-    p40_raw = random.uniform(0, 1800)
-
-
-    csv = str(timestamp) + ','
-    # csv = ''
-    csv = csv + str(axes1['x']) + ',' + str(axes1['y']) + ',' + str(axes1['z']) + ',' 
-    csv = csv + str(axes2['x']) + ',' + str(axes2['y']) + ',' + str(axes2['z']) + ',' 
-    csv = csv + str(axes3['x']) + ',' + str(axes3['y']) + ',' + str(axes3['z']) + ',' 
-    csv = csv + str(axes4['x']) + ',' + str(axes4['y']) + ',' + str(axes4['z']) + ',' 
-    csv = csv + str(p37_raw) + ',' + str(p38_raw) + ',' + str(p39_raw) + ',' + str(p40_raw) + ','
-
-    conn.send(csv)
-    print csv
+        p37_raw = random.uniform(0, 1800)
+        p38_raw = random.uniform(0, 1800)
+        p39_raw = random.uniform(0, 1800)
+        p40_raw = random.uniform(0, 1800)
 
 
-    sleep (0.010)  # ms
+        csv = str(timestamp) + ','
+        # csv = ''
+        csv = csv + str(axes1['x']) + ',' + str(axes1['y']) + ',' + str(axes1['z']) + ',' 
+        csv = csv + str(axes2['x']) + ',' + str(axes2['y']) + ',' + str(axes2['z']) + ',' 
+        csv = csv + str(axes3['x']) + ',' + str(axes3['y']) + ',' + str(axes3['z']) + ',' 
+        csv = csv + str(axes4['x']) + ',' + str(axes4['y']) + ',' + str(axes4['z']) + ',' 
+        csv = csv + str(p37_raw) + ',' + str(p38_raw) + ',' + str(p39_raw) + ',' + str(p40_raw) + ','
 
+
+
+        try:
+            conn.send(csv)
+            print csv
+        except:
+            print('Error sending data over network')
+            break
+        
+        sleep (0.100)  # ms
+
+
+
+
+
+
+
+
+
+
+print 'soft end - no errors'
 f.close()
 
 
