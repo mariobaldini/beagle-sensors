@@ -1,0 +1,6 @@
+Column 1-3:	ADXL 345, I2C Bus: 1, Address 0x53; Format: x,y,z; +/-0.000 G
+Column 4-6:	ADXL 345, I2C Bus: 1, Address 0xXX; Format: x,y,z; +/-0.000 G
+Column 7-9:	ADXL 345, I2C Bus: 2, Address 0x53; Format: x,y,z; +/-0.000 G
+Column 10-12:	ADXL 345, I2C Bus: 2, Address 0xXX; Format: x,y,z; +/-0.000 G
+Column 13-18:	Analog inputs. P9_35 - P9_40. mV
+---------------------------------------------------------------------
