@@ -70,77 +70,69 @@ print 'Socket bind complete'
 s.listen(10)
 print 'Socket now listening'
  
-
-while (True): 
-
-    #wait to accept a connection - blocking call
-    print "Waiting for connections..."
-    conn, addr = s.accept()
-     
-    #display client information
-    print 'Connected with ' + addr[0] + ':' + str(addr[1])
+#wait to accept a connection - blocking call
+#conn, addr = s.accept()
+ 
+#display client information
+#print 'Connected with ' + addr[0] + ':' + str(addr[1])
 
 
-    while (True):
-        
-        timestamp = time.time()
-
-        axes1 = adx1.getAxes(True)
-        axes2 = adx2.getAxes(True)
-        axes3 = adx3.getAxes(True)
-        axes4 = adx4.getAxes(True)
-
-
-        p37_raw = ADC.read_raw("P9_37") 
-        p38_raw = ADC.read_raw("P9_38") 
-        p39_raw = ADC.read_raw("P9_39") 
-        p40_raw = ADC.read_raw("P9_40") 
-
-
-        # axes1['x'] = random.uniform(-2.0, 2.0)
-        # axes1['y'] = random.uniform(-2.0, 2.0)
-        # axes1['z'] = random.uniform(-2.0, 2.0)
-
-        # axes2['x'] = random.uniform(-2.0, 2.0)
-        # axes2['y'] = random.uniform(-2.0, 2.0)
-        # axes2['z'] = random.uniform(-2.0, 2.0)
-
-        # axes3['x'] = random.uniform(-2.0, 2.0)
-        # axes3['y'] = random.uniform(-2.0, 2.0)
-        # axes3['z'] = random.uniform(-2.0, 2.0)
-
-        # axes4['x'] = random.uniform(-2.0, 2.0)
-        # axes4['y'] = random.uniform(-2.0, 2.0)
-        # axes4['z'] = random.uniform(-2.0, 2.0)
-
-        # p37_raw = random.uniform(0, 1800)
-        # p38_raw = random.uniform(0, 1800)
-        # p39_raw = random.uniform(0, 1800)
-        # p40_raw = random.uniform(0, 1800)
-
-
-        csv = str(timestamp) + ','
-        # csv = ''
-        csv = csv + str(axes1['x']) + ',' + str(axes1['y']) + ',' + str(axes1['z']) + ',' 
-        csv = csv + str(axes2['x']) + ',' + str(axes2['y']) + ',' + str(axes2['z']) + ',' 
-        csv = csv + str(axes3['x']) + ',' + str(axes3['y']) + ',' + str(axes3['z']) + ',' 
-        csv = csv + str(axes4['x']) + ',' + str(axes4['y']) + ',' + str(axes4['z']) + ',' 
-        csv = csv + str(p37_raw) + ',' + str(p38_raw) + ',' + str(p39_raw) + ',' + str(p40_raw) + ','
+csv = ""
 
 
 
-        try:
-            conn.send(csv)
-            print csv
-        except:
-            print('Error sending data over network')
-            break
-        
-        sleep (0.100)  # ms
+while (True):
+    
+
+
+    axes1 = adx1.getAxes(True)
+    axes2 = adx2.getAxes(True)
+    axes3 = adx3.getAxes(True)
+    axes4 = adx4.getAxes(True)
 
 
 
-print 'soft end - no errors'
+    p35_raw = ADC.read_raw("P9_35")
+    p36_raw = ADC.read_raw("P9_36")	
+    p37_raw = ADC.read_raw("P9_37")	
+    p38_raw = ADC.read_raw("P9_38")	
+    p39_raw = ADC.read_raw("P9_39")	
+    p40_raw = ADC.read_raw("P9_40")	
+	
+
+    sys.stdout.write("%.3f," % ( axes1['x'] ))
+    sys.stdout.write("%.3f," % ( axes1['y'] ))
+    sys.stdout.write("%.3f," % ( axes1['z'] ))
+    sys.stdout.write("\t")
+    sys.stdout.write("%.3f," % ( axes2['x'] ))
+    sys.stdout.write("%.3f," % ( axes2['y'] ))
+    sys.stdout.write("%.3f," % ( axes2['z'] ))
+    sys.stdout.write("\t")
+    sys.stdout.write("%.3f," % ( axes3['x'] ))
+    sys.stdout.write("%.3f," % ( axes3['y'] ))
+    sys.stdout.write("%.3f," % ( axes3['z'] ))
+    sys.stdout.write("\t")
+    sys.stdout.write("%.3f," % ( axes4['x'] ))
+    sys.stdout.write("%.3f," % ( axes4['y'] ))
+    sys.stdout.write("%.3f," % ( axes4['z'] ))
+    sys.stdout.write("\t")
+    sys.stdout.write("%07.2f," % ( p35_raw ))
+    sys.stdout.write("%07.2f," % ( p36_raw ))
+    sys.stdout.write("%07.2f," % ( p37_raw ))
+    sys.stdout.write("%07.2f," % ( p38_raw ))
+    sys.stdout.write("%07.2f," % ( p39_raw ))
+    sys.stdout.write("%07.2f" % ( p40_raw ))
+
+
+    sys.stdout.write("\n")
+    sys.stdout.flush()
+
+    csv = axes1 + "," + axes1
+    print csv
+
+
+    sleep (0.150)  # ms
+
 f.close()
 
 
