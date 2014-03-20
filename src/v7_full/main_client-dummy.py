@@ -285,7 +285,21 @@ def update():
   ain4c.setData(ain4data[len(ain4data)-data_window_size:len(ain4data)])
   
 
-  
+
+  # # Update chart titles with current value
+  # adx1.setTitle("Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
+  # adx2.setTitle("Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
+  # adx3.setTitle("Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
+  # adx4.setTitle("Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
+
+  # ain1.setTitle("Analog Input 3 - P9-37 - %0.2f (mV)" % p37_raw)
+  # ain2.setTitle("Analog Input 2 - P9-38 - %0.2f (mV)" % p38_raw)
+  # ain3.setTitle("Analog Input 1 - P9-39 - %0.2f (mV)" % p39_raw)
+  # ain4.setTitle("Analog Input 0 - P9-40 - %0.2f (mV)" % p40_raw)
+
+
+
+
 
 
   global lastTime
