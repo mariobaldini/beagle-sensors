@@ -18,7 +18,7 @@ port = 8888
 
 app = QtGui.QApplication([])
 w = pg.GraphicsWindow()
-w.setWindowTitle('Beaglebone Health Sensors Experiments - https://github.com/mariobaldini/beagle-sensors')
+w.setWindowTitle('ADX Tests')
 
 adx1 = w.addPlot(0,0, title="Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
 adx2 = w.addPlot(1,0, title="Accel.  -  I2C-1 0x1D  -  (X,Y,Z)-(Red,Green,Blue)  -  Unit: G")
