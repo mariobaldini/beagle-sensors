@@ -136,14 +136,45 @@ _TODO Documentation_
 
 
 
-Software usage 
+References
 -------------------------
 
-
-_TODO: docs_
-
-Reading devices on a I2C bus:
-
+http://beagleboard.org/Support/BoneScript
+http://code.enthought.com/chaco
+http://datko.net/2013/11/03/bbb_i2c
+http://elinux.org/Beagleboard:BeagleBoneBlack
+http://learn.adafruit.com/downloads/pdf/setting-up-io-python-library-on-beaglebone-black.pdf
+http://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black/i2c
+http://letsmakerobots.com/files/userpics/u19048/B_3PinOut3.png
+http://makingaquadrotor.wordpress.com/2012/07/08/i2c-on-the-beaglebone
+http://minix-i2c.blogspot.com.br/2013/07/using-i2c-tools-with-angstrom-linux-on.html
+http://pyqwt.sourceforge.net
+http://stackoverflow.com/questions/17951155/implementing-pyqtgraph-for-live-data-graphing
+http://wiki.analog.com/resources/tools-software/linux-drivers/input-misc/adxl345
+http://wiki.openwrt.org/doc/techref/opkg
+http://www.adminempire.com/beaglebone-basics-for-arch-linux
+http://www.alfonsomartone.itb.it/mzscbb.html
+http://www.armhf.com/index.php/boards/beaglebone-black/#saucy
+http://www.elecrow.com/cooperated-designers-c-127/embedded-lab-c-127_128/easy-pulse-v11-p-837.html
+http://www.elinux.org/Beagleboard:BeagleBone_Black_FAQ
+http://www.elinux.org/Beagleboard:BoneScript
+http://www.i2cdevlib.com/devices/adxl345#source
+http://www.instructables.com/id/BeagleBone-Ubuntu-OS-LXDE-GUI/?ALLSTEPS
+http://www.michaelhleonard.com/understanding-and-using-i2c
+http://www.qcustomplot.com
+http://www.shantanubhadoria.com/article/setting-up-device-smbus-on-beaglebone-black-76
+http://www.swharden.com/blog/2013-05-08-realtime-data-plotting-in-python
+https://github.com/adafruit/adafruit-beaglebone-io-python
+https://github.com/adafruit/PyBBIO
+https://github.com/derekmolloy/beaglebone
+https://github.com/kelly/node-i2c
+https://github.com/mariobaldini/beagle-sensors
+https://github.com/rossant/galry
+https://github.com/timbit123/ADXL345
+https://github.com/zlalanne/node-serial-gui
+https://groups.google.com/forum/#!topic/beagleboard/YctTkwyFc8g
+https://lkml.org/lkml/2009/7/1/436
+https://www.youtube.com/watch?v=8C2zk6B-eLU
 
 
 
